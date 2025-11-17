@@ -1,0 +1,4 @@
+body { background: #f6f8fb; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.card { box-shadow: 0 6px 18px rgba(22,28,45,0.06); border: none; }
+h1 { font-weight: 600; }
+.lead { color: #58607a }

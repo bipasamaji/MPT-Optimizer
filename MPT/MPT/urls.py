@@ -15,8 +15,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from analysis.views import index_view
+from django.views.static import serve
+from pathlib import Path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('analysis.api_urls')),
+    path('', index_view),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Serve frontend build assets under /assets/ (development only)
+project_root = Path(settings.BASE_DIR).parent
+dist_assets = project_root / 'frontend' / 'dist' / 'assets'
+urlpatterns += [
+    path('assets/<path:path>', serve, {'document_root': str(dist_assets)}),
 ]
