@@ -8,7 +8,7 @@ Modern Portfolio Theory (MPT) optimizer built with a Django backend and a React 
 - **Financial analysts / researchers:** prototyping and experimenting with portfolio construction.
 - **Prototyping for robo-advisors:** base components for backtesting and automated allocation engines.
 
-**What the Project Does (High Level)**
+**What the Project Does**
 - Ingests historical prices using `yfinance` and stores them in `Price` model rows.
 - Converts close prices into daily returns and annualizes expected returns and covariance matrix.
 - Solves a convex optimization problem (minimize portfolio variance subject to sum(weights)=1, weights >= 0, and optional target return) using `cvxpy`.
